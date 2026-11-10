@@ -81,8 +81,7 @@ a{color:inherit;text-decoration:none}
 /* hero */
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
 .hero-slides{position:absolute;inset:0;z-index:-2}
-.hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1.8s ease,transform 9s ease-out}
-.hero-slides img.on{opacity:1;transform:scale(1)}
+.hero-slides video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(15,23,23,.55) 0%,rgba(15,23,23,.15) 35%,rgba(15,23,23,.88) 100%)}
 .hero-inner{width:100%;padding:120px var(--pad) clamp(40px,8vh,84px)}
 .hero-logo{width:min(560px,82vw);height:auto;margin-bottom:clamp(24px,5vh,48px)}
@@ -90,9 +89,6 @@ a{color:inherit;text-decoration:none}
 .hero h1 em{font-style:italic;color:var(--accent)}
 .hero p.lead{max-width:52ch;margin-top:22px;color:#e4e0d6;font-size:clamp(16px,1.4vw,19px)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;align-items:center}
-.dots{position:absolute;right:var(--pad);bottom:clamp(40px,8vh,84px);display:flex;gap:10px}
-.dots span{width:34px;height:2px;background:rgba(243,239,231,.35)}
-.dots span.on{background:var(--accent)}
 
 /* sections */
 section{position:relative}
@@ -251,7 +247,6 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
   .zone-list a{grid-template-columns:72px 1fr auto}
   .zone-list img{width:72px;height:48px}
   .hero-cta .btn{flex:1 1 100%}
-  .dots{display:none}
   .float-wa span{display:none}
   .float-wa{padding:0 15px;min-width:52px;justify-content:center}
 }
@@ -259,7 +254,7 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
   html{scroll-behavior:auto}
   .dev-pin{overflow-x:auto}
   .rv{opacity:1;transform:none;transition:none}
-  .hero-slides img,.card img{transition:none;transform:none}
+  .card img{transition:none;transform:none}
 }
 </style>
 </head>
@@ -277,9 +272,7 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
 <main id="main">
 <section class="hero" aria-label="David Freed">
   <div class="hero-slides" aria-hidden="true">
-    <img class="on" src="assets/hero-1.webp" alt="" width="1920" height="1200" fetchpriority="high">
-    <img src="assets/hero-2.webp" alt="" width="1920" height="1200">
-    <img src="assets/hero-3.webp" alt="" width="1920" height="1200">
+    <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.webp" width="1600" height="1004"><source src="assets/hero.mp4" type="video/mp4"></video>
   </div>
   <div class="hero-inner">
     <img class="hero-logo" src="assets/logo.webp" alt="David Freed, Miami Is Home | Compass" width="1400" height="264">
@@ -290,7 +283,6 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
       <a class="btn btn-ghost" href="#developments" data-i18n="cta_dev">See new developments</a>
     </div>
   </div>
-  <div class="dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
 </section>
 
 <div class="stats" aria-label="Track record">
@@ -632,13 +624,9 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
   function onScroll(){nav.classList.toggle('solid',window.scrollY>80);}
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
 
-  // hero slideshow
-  var slides=document.querySelectorAll('.hero-slides img'),dots=document.querySelectorAll('.dots span'),i=0;
-  if(!reduce){setInterval(function(){
-    slides[i].classList.remove('on');dots[i].classList.remove('on');
-    i=(i+1)%slides.length;
-    slides[i].classList.add('on');dots[i].classList.add('on');
-  },5500);}
+  // hero video
+  var hv=document.getElementById('heroVideo');
+  if(hv){if(reduce){hv.removeAttribute('autoplay');hv.pause();}else{var pp=hv.play();if(pp&&pp.catch)pp.catch(function(){});}}
 
   // reveal
   var rv=document.querySelectorAll('.rv');
