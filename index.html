@@ -212,6 +212,7 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
 .dm-facts div:last-child{border-right:0}
 .dm-facts b{display:block;font:500 clamp(24px,2.4vw,34px)/1.05 var(--serif);color:var(--accent)}
 .dm-facts span{font-size:12px;color:var(--muted);letter-spacing:.06em}
+.dm-addr+.dm-facts+.dm-desc,.dm-desc{margin-top:0}
 .dm-desc{color:#dcd9d0;max-width:60ch}
 .dm h3{font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:34px 0 14px}
 .dm ul{list-style:none;border-top:1px solid var(--line)}
@@ -228,6 +229,10 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
 }
 @media(prefers-reduced-motion:reduce){.dm,.dm.open{transition:none;transform:none}}
 
+.dm-rel{display:flex;flex-wrap:wrap;gap:10px}
+.dm-rel[hidden]{display:none}
+.dm-rel button{min-height:44px;padding:0 18px;background:none;border:1px solid var(--accent);color:var(--accent);font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s}
+.dm-rel button:hover{background:var(--accent);color:var(--accent-ink)}
 /* reveal */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
 .rv.in{opacity:1;transform:none}
@@ -343,23 +348,16 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
     </div>
     <div class="zones-grid">
       <ul class="zone-list rv">
-        <li><a href="https://miamishome.com/neighborhoods/brickell" target="_blank" rel="noopener"><img src="assets/hood-brickell.webp" alt="Brickell street with colorful facades" loading="lazy" width="640" height="400"><span class="n">Brickell</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="https://miamishome.com/neighborhoods/downtown-miami" target="_blank" rel="noopener"><img src="assets/hood-downtown.webp" alt="Aerial view of Downtown Miami and Bayfront Park" loading="lazy" width="640" height="400"><span class="n">Downtown Miami</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="https://miamishome.com/neighborhoods/edgewater" target="_blank" rel="noopener"><img src="assets/hood-edgewater.webp" alt="Palm trees and waterfront towers in Edgewater" loading="lazy" width="640" height="383"><span class="n">Edgewater</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="https://miamishome.com/neighborhoods/miami-beach" target="_blank" rel="noopener"><img src="assets/hood-miami-beach.webp" alt="Balcony overlooking the ocean in Miami Beach" loading="lazy" width="640" height="400"><span class="n">Miami Beach</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="https://miamishome.com/neighborhoods/sunny-isles" target="_blank" rel="noopener"><img src="assets/hood-sunny-isles.webp" alt="Beach path in Sunny Isles" loading="lazy" width="640" height="400"><span class="n">Sunny Isles</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
-        <li><a href="https://miamishome.com/neighborhoods/aventura" target="_blank" rel="noopener"><img src="assets/hood-aventura.webp" alt="Aerial view of a golf course in Aventura" loading="lazy" width="640" height="400"><span class="n">Aventura</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#zone=brickell" data-dev="brickell"><img src="assets/hood-brickell.webp" alt="Brickell street with colorful facades" loading="lazy" width="640" height="400"><span class="n">Brickell</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#zone=downtown" data-dev="downtown"><img src="assets/hood-downtown.webp" alt="Aerial view of Downtown Miami and Bayfront Park" loading="lazy" width="640" height="400"><span class="n">Downtown Miami</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#zone=edgewater" data-dev="edgewater"><img src="assets/hood-edgewater.webp" alt="Palm trees and waterfront towers in Edgewater" loading="lazy" width="640" height="383"><span class="n">Edgewater</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#zone=miami-beach" data-dev="miami-beach"><img src="assets/hood-miami-beach.webp" alt="Balcony overlooking the ocean in Miami Beach" loading="lazy" width="640" height="400"><span class="n">Miami Beach</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#zone=sunny-isles" data-dev="sunny-isles"><img src="assets/hood-sunny-isles.webp" alt="Beach path in Sunny Isles" loading="lazy" width="640" height="400"><span class="n">Sunny Isles</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="#zone=aventura" data-dev="aventura"><img src="assets/hood-aventura.webp" alt="Aerial view of a golf course in Aventura" loading="lazy" width="640" height="400"><span class="n">Aventura</span><span class="a" aria-hidden="true">&rarr;</span></a></li>
       </ul>
       <div class="zones-side rv">
-        <p data-i18n="z_p">Condo searches by area, straight from his site:</p>
-        <div class="stack">
-          <a class="link-arrow" href="https://miamishome.com/brickell-condos-for-sale" target="_blank" rel="noopener">Brickell Condos for Sale</a>
-          <a class="link-arrow" href="https://miamishome.com/miami-beach-condos-for-sale" target="_blank" rel="noopener">Miami Beach Condos for Sale</a>
-          <a class="link-arrow" href="https://miamishome.com/edgewater-condos-for-sale" target="_blank" rel="noopener">Edgewater Condos for Sale</a>
-          <a class="link-arrow" href="https://miamishome.com/aventura-condos-for-sale" target="_blank" rel="noopener">Aventura Condos for Sale</a>
-          <a class="link-arrow" href="https://miamishome.com/coconut-grove-condos-for-sale" target="_blank" rel="noopener">Coconut Grove Condos for Sale</a>
-          <a class="link-arrow" href="https://miamishome.com/coral-gables-condos-for-sale" target="_blank" rel="noopener">Coral Gables Condos for Sale</a>
-        </div>
+        <p data-i18n="z_p">Looking in a specific area? Tell David what you need and he will take it from there.</p>
+        <a class="btn btn-solid wa-link" href="#" target="_blank" rel="noopener" data-i18n="cta_wa">Write on WhatsApp</a>
       </div>
     </div>
   </div>
@@ -442,8 +440,12 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
       <p class="dm-addr" id="dmAddr"></p>
       <div class="dm-facts" id="dmFacts"></div>
       <p class="dm-desc" id="dmDesc"></p>
-      <h3 data-i18n="dm_hi">Highlights</h3>
+      <h3 id="dmHi" data-i18n="dm_hi">Highlights</h3>
       <ul id="dmList"></ul>
+      <h3 id="dmH2" hidden></h3>
+      <ul id="dmList2" hidden></ul>
+      <h3 id="dmH3" hidden></h3>
+      <div class="dm-rel" id="dmRel" hidden></div>
       <div class="dm-cta">
         <a class="btn btn-solid" id="dmWa" href="#" target="_blank" rel="noopener" data-i18n="dm_ask">Ask David about this development</a>
         <a class="btn btn-ghost" href="tel:+19542638115">(954) 263-8115</a>
@@ -463,22 +465,22 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
     en:{skip:'Skip to content',h1:'Luxury living in Miami, <em>guided by someone born here.</em>',lead:'Brickell condos, new construction and waterfront homes with David Freed, a licensed real estate professional who grew up in Miami.',cta_wa:'Write on WhatsApp',cta_wa_short:'WhatsApp',cta_dev:'See new developments',
       s1:'in sales volume, 2022 to 2025',s2:'ranked in South Florida, 2022 to 2025',s3:'average sale, 2022 to 2025',s4:'5-star reviews',stats_note:"Figures as published on David Freed's website.",
       dev_eye:'New construction',dev_h:'Towers worth <em>waiting for.</em>',dev_all:'All developments',from:'from',view:'View development',stories66:'66 stories',stories75:'75 stories',stories80:'80 stories',stories65:'65 stories',stories48:'48 stories',stories100:'100 stories',more_tag:'And more',more_h:'Ready-to-move listings too.',more_p:'Featured properties for sale, updated on his site.',more_btn:'Featured properties',
-      z_eye:'Neighborhoods',z_h:'Find your <em>corner of Miami.</em>',z_p:'Condo searches by area, straight from his site:',
+      z_eye:'Neighborhoods',z_h:'Find your <em>corner of Miami.</em>',z_p:'Looking in a specific area? Tell David what you need and he will take it from there.',
       a_eye:'About David',a_h:'Trustworthy. Dedicated. <em>Dependable.</em>',a_p1:'Born and raised in Miami, David Freed is a licensed real estate professional who specializes in servicing, not selling: insight, trends and facts, with personalized attention so every client has a memorable experience.',a_p2:'He works with first-time buyers, luxury sellers, investors and families relocating to Miami.',f_brok:'Brokerage',f_lic:'License',f_off:'Office',f_phone:'Phone',aw:'Recognitions:',aw_list:'South Florida Rookie of the Year (2021), Platinum Producer Award (2022), Miami Real Producers Rising Star (2023).',
       rev_note:"Excerpts from client reviews on David's website (in English).",rev_more:'Read all testimonials',
       c_eye:"Let's talk",c_h:"Tell David what you're <em>looking for.</em>",c_p:'A message is enough. Write in English or Spanish and he will take it from there.',c_form:'Contact form',
       foot1:'David Freed is a real estate agent affiliated with Compass. Compass Florida, LLC d/b/a Compass is a licensed real estate broker and abides by equal housing opportunity laws.',foot2:'Design concept. Information and images belong to David Freed / Miami Is Home.',
-      dm_back:'Back',dm_hi:'Highlights',dm_ask:'Ask David about this development',dm_note:"Details as published on David Freed's website. Prices and availability are subject to change.",l_floors:'floors',l_from:'from',l_year:'delivery',l_res:'residences',
+      dm_back:'Back',dm_hi:'Highlights',dm_ask:'Ask David about this development',dm_note:"Details as published on David Freed's website. Prices and availability are subject to change.",l_floors:'floors',z_love:'What to love',z_eat:'Dining and places to go',z_rel:'Developments in this area',z_ask:'Ask David about this area',l_from:'from',l_year:'delivery',l_res:'residences',
       wa:'Hi David, I saw your website and I would like to talk about Miami real estate.'},
     es:{skip:'Saltar al contenido',h1:'Vivir con lujo en Miami, <em>de la mano de alguien nacido aquí.</em>',lead:'Condos en Brickell, preconstrucción y casas frente al agua con David Freed, profesional inmobiliario con licencia que creció en Miami.',cta_wa:'Escríbele por WhatsApp',cta_wa_short:'WhatsApp',cta_dev:'Ver desarrollos nuevos',
       s1:'en volumen de ventas, 2022 a 2025',s2:'en South Florida, 2022 a 2025',s3:'venta promedio, 2022 a 2025',s4:'reseñas de 5 estrellas',stats_note:'Cifras publicadas en el sitio web de David Freed.',
       dev_eye:'Preconstrucción',dev_h:'Torres que <em>valen la espera.</em>',dev_all:'Todos los desarrollos',from:'desde',view:'Ver desarrollo',stories66:'66 pisos',stories75:'75 pisos',stories80:'80 pisos',stories65:'65 pisos',stories48:'48 pisos',stories100:'100 pisos',more_tag:'Y más',more_h:'También propiedades listas para mudarse.',more_p:'Propiedades destacadas en venta, actualizadas en su sitio.',more_btn:'Propiedades destacadas',
-      z_eye:'Zonas',z_h:'Encuentra tu <em>rincón de Miami.</em>',z_p:'Búsquedas de condos por zona, directo desde su sitio:',
+      z_eye:'Zonas',z_h:'Encuentra tu <em>rincón de Miami.</em>',z_p:'¿Buscas en una zona específica? Cuéntale a David qué necesitas y él se encarga del resto.',
       a_eye:'Sobre David',a_h:'Confiable. Dedicado. <em>Responsable.</em>',a_p1:'Nacido y criado en Miami, David Freed es un profesional inmobiliario con licencia que se enfoca en servir, no en vender: información, tendencias y datos, con atención personalizada para que cada cliente tenga una experiencia memorable.',a_p2:'Trabaja con compradores primerizos, vendedores de propiedades de lujo, inversionistas y familias que se mudan a Miami.',f_brok:'Inmobiliaria',f_lic:'Licencia',f_off:'Oficina',f_phone:'Teléfono',aw:'Reconocimientos:',aw_list:'South Florida Rookie of the Year (2021), Platinum Producer Award (2022), Miami Real Producers Rising Star (2023).',
       rev_note:'Extractos de reseñas de clientes en el sitio de David (en inglés).',rev_more:'Leer todos los testimonios',
       c_eye:'Hablemos',c_h:'Cuéntale a David <em>qué estás buscando.</em>',c_p:'Basta con un mensaje. Escribe en inglés o en español y él se encarga del resto.',c_form:'Formulario de contacto',
       foot1:'David Freed es agente inmobiliario afiliado a Compass. Compass Florida, LLC d/b/a Compass es una corredora de bienes raíces con licencia y respeta las leyes de igualdad de vivienda.',foot2:'Concepto de diseño. La información y las imágenes pertenecen a David Freed / Miami Is Home.',
-      dm_back:'Volver',dm_hi:'Lo destacado',dm_ask:'Preguntar a David por este desarrollo',dm_note:'Detalles según el sitio web de David Freed. Precios y disponibilidad pueden cambiar.',l_floors:'pisos',l_from:'desde',l_year:'entrega',l_res:'residencias',
+      dm_back:'Volver',dm_hi:'Lo destacado',dm_ask:'Preguntar a David por este desarrollo',dm_note:'Detalles según el sitio web de David Freed. Precios y disponibilidad pueden cambiar.',l_floors:'pisos',z_love:'Lo que se disfruta',z_eat:'Dónde comer y salir',z_rel:'Desarrollos en esta zona',z_ask:'Preguntar a David por esta zona',l_from:'desde',l_year:'entrega',l_res:'residencias',
       wa:'Hola David, vi tu sitio web y me gustaría hablar sobre propiedades en Miami.'}
   };
   var lang='en';
@@ -518,15 +520,61 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
      en:{desc:'A 100-story, 1,049-foot tower in Downtown Miami with 360 private residences and 205 hotel guestrooms and suites. Interiors by BAMO, with unobstructed views of the ocean and skyline.',hi:['Studios to 4 bedrooms, fully finished with Waldorf Astoria approval','10-foot floor-to-ceiling windows; penthouses with 12-foot windows','Wolf Sub-Zero appliances and summer kitchen balconies','Peacock Alley, signature restaurant and all-day brasserie','Resort-style pool, private bar and wine tasting room, kids club','Waldorf Astoria concierge, valet and a private house account']},
      es:{desc:'Una torre de 100 pisos y 1,049 pies en el centro de Miami con 360 residencias privadas y 205 habitaciones y suites de hotel. Interiores de BAMO, con vistas despejadas al océano y al skyline.',hi:['Estudios a 4 dormitorios, totalmente terminados con aprobación de Waldorf Astoria','Ventanales de piso a techo de 10 pies; penthouses con ventanales de 12 pies','Electrodomésticos Wolf Sub-Zero y balcones con cocina de verano','Peacock Alley, restaurante insignia y brasserie todo el día','Piscina estilo resort, bar privado y sala de degustación de vinos, kids club','Concierge Waldorf Astoria, valet y cuenta privada para cada residente']}}
   };
+  var ZONES={
+   'brickell':{name:'Brickell',img:'assets/hood-brickell.webp',alt:'Brickell street with colorful facades',rel:['aston-martin','baccarat','cipriani'],eat:['Sexy Fish Miami','Gekko','Komodo'],
+     en:{tag:'An upscale coastal community with luxury homes and fun activities near world-class beaches',desc:'Often called the "Manhattan of the South", Brickell blends sleek high-rises, luxury amenities and walkable shopping and business districts with quiet residential streets. It is a premier destination for professionals, retirees and tourists.',love:['Upscale shopping centers and fine dining','Waterfront living with luxury real estate options','Active community with walkable areas','Close to the beach and downtown Miami']},
+     es:{tag:'Una comunidad costera de alto nivel con casas de lujo y actividades cerca de playas de clase mundial',desc:'Conocida como el "Manhattan del Sur", Brickell combina rascacielos modernos, amenidades de lujo y zonas comerciales caminables con calles residenciales tranquilas. Es un destino preferido por profesionales, jubilados y turistas.',love:['Centros comerciales de alto nivel y alta cocina','Vida frente al agua con opciones inmobiliarias de lujo','Comunidad activa con zonas caminables','Cerca de la playa y del centro de Miami']}},
+   'downtown':{name:'Downtown Miami',img:'assets/hood-downtown.webp',alt:'Aerial view of Downtown Miami and Bayfront Park',rel:['e11even','waldorf'],eat:['Il Gabbiano','Novikov Miami'],
+     en:{tag:'A fun and active coastal destination with upscale living and proximity to world-class beaches',desc:'A bustling, eclectic city center with views of Biscayne Bay, nightlife, an arts and culture scene and a striking skyline. Housing ranges from luxury high-rise condominiums to charming historic homes, with access to Metrorail and bus systems.',love:['Beautiful sunsets and water views','Close to Key Biscayne and famous beaches','Luxury condominiums with amenities','Exciting nightlife and walkable areas']},
+     es:{tag:'Un destino costero activo y entretenido, con vida de alto nivel y cerca de playas de clase mundial',desc:'Un centro urbano animado y ecléctico con vistas a la bahía de Biscayne, vida nocturna, escena de arte y cultura y un skyline imponente. Hay desde condominios de lujo en altura hasta casas históricas, con acceso a Metrorail y buses.',love:['Atardeceres y vistas al agua','Cerca de Key Biscayne y playas famosas','Condominios de lujo con amenidades','Vida nocturna y zonas caminables']}},
+   'edgewater':{name:'Edgewater',img:'assets/hood-edgewater.webp',alt:'Palm trees and waterfront towers in Edgewater',rel:[],eat:['Amara at Paraiso','Catch Grill & Bar','Hiden'],
+     en:{tag:'A beautiful bayfront community with an upscale atmosphere',desc:'An upscale neighborhood along Biscayne Bay, minutes from downtown Miami, with luxurious waterfront condominiums with bay views and charming single-family homes in quiet streets. Boating, fishing and waterfront trails are part of daily life.',love:['Close to downtown Miami, South Beach and Miami Beach','Luxury homes and bayfront living','Access to exciting events and festivals','Ocean access for boating and other recreation']},
+     es:{tag:'Una hermosa comunidad frente a la bahía con ambiente de alto nivel',desc:'Un barrio de alto nivel junto a la bahía de Biscayne, a minutos del centro de Miami, con lujosos condominios frente al agua con vistas a la bahía y casas unifamiliares en calles tranquilas. Navegar, pescar y recorrer senderos frente al mar son parte del día a día.',love:['Cerca del centro de Miami, South Beach y Miami Beach','Casas de lujo y vida frente a la bahía','Acceso a eventos y festivales','Acceso al mar para navegar y otras actividades']}},
+   'miami-beach':{name:'Miami Beach',img:'assets/hood-miami-beach.webp',alt:'Balcony overlooking the ocean in Miami Beach',rel:['five-park'],eat:['Barton G. The Restaurant'],
+     en:{tag:'A colorful beach community with endless fun and activities while embracing a relaxed lifestyle',desc:"An iconic community on Florida's Atlantic coast with beautiful beaches, world-class dining and a thriving arts scene. Housing ranges from waterfront mansions and modern high-rise condominiums to Art Deco apartments.",love:['World-class beaches and watersports','Upscale maintenance-free living and waterfront estates','Beautiful architecture and a strong arts scene','Active community with fun events']},
+     es:{tag:'Una comunidad de playa colorida, con diversión sin fin y un estilo de vida relajado',desc:'Una comunidad icónica en la costa atlántica de Florida con hermosas playas, gastronomía de clase mundial y una escena artística vibrante. Hay desde mansiones frente al agua y condominios modernos en altura hasta departamentos Art Deco.',love:['Playas y deportes acuáticos de clase mundial','Vida de lujo sin mantención y residencias frente al agua','Arquitectura hermosa y una fuerte escena artística','Comunidad activa con eventos entretenidos']}},
+   'sunny-isles':{name:'Sunny Isles',img:'assets/hood-sunny-isles.webp',alt:'Beach path in Sunny Isles',rel:[],eat:["Gili's Beach Club",'Arva Miami'],
+     en:{tag:'An island destination with ocean views, resort living and an affluent atmosphere',desc:'A barrier island north of Miami Beach and east of Aventura, surrounded by the Intracoastal Waterway and the Atlantic Ocean. Luxury high-rise condominiums, resort-style amenities, and shopping and dining along Collins Avenue.',love:['The beaches, water sports and recreation opportunities','High-end shopping and dining options','The exclusive luxury homes and refined amenities','Close to Miami and Fort Lauderdale']},
+     es:{tag:'Un destino isleño con vistas al océano, vida de resort y ambiente de alto nivel',desc:'Una isla barrera al norte de Miami Beach y al este de Aventura, rodeada por el Intracoastal Waterway y el océano Atlántico. Condominios de lujo en altura, amenidades de resort, y compras y gastronomía a lo largo de Collins Avenue.',love:['Playas, deportes acuáticos y recreación','Compras y gastronomía de alto nivel','Residencias exclusivas y amenidades refinadas','Cerca de Miami y Fort Lauderdale']}},
+   'aventura':{name:'Aventura',img:'assets/hood-aventura.webp',alt:'Aerial view of a golf course in Aventura',rel:[],eat:['Aventura Mall',"Casa D'Angelo",'Sugar Factory'],
+     en:{tag:'An active community with luxury shopping and relaxing water activities',desc:'A coastal community between Miami and Fort Lauderdale on the Intracoastal Waterway, known for its upscale atmosphere, waterfront residences with access to private marinas, beaches, parks and the Aventura Mall.',love:['World-class shopping and entertainment','Waterfront lifestyle with boating and recreation','Excellent schools with rigorous academic programs','Close to Miami and Fort Lauderdale']},
+     es:{tag:'Una comunidad activa con compras de lujo y actividades acuáticas relajantes',desc:'Una comunidad costera entre Miami y Fort Lauderdale sobre el Intracoastal Waterway, conocida por su ambiente de alto nivel, residencias frente al agua con acceso a marinas privadas, playas, parques y el Aventura Mall.',love:['Compras y entretenimiento de clase mundial','Vida frente al agua con navegación y recreación','Excelentes colegios con programas académicos exigentes','Cerca de Miami y Fort Lauderdale']}}
+  };
+  var ZORDER=['brickell','downtown','edgewater','miami-beach','sunny-isles','aventura'];
+  function setMode(z){
+    el('dmFacts').style.display=z?'none':'';
+    ['dmH2','dmList2'].forEach(function(k){el(k).hidden=!z;});
+  }
+  function fillZone(id){
+    var d=ZONES[id],L=D[lang],x=d[lang];cur=id;setMode(true);
+    el('dmTag').textContent=L.z_eye;el('dmTitle').textContent=d.name;el('dmAddr').textContent=x.tag;el('dmAddr').style.display='';
+    el('dmDesc').textContent=x.desc;
+    el('dmHi').textContent=L.z_love;
+    var ul=el('dmList');ul.innerHTML='';x.love.forEach(function(h){var li=document.createElement('li');li.textContent=h;ul.appendChild(li);});
+    el('dmH2').textContent=L.z_eat;
+    var u2=el('dmList2');u2.innerHTML='';d.eat.forEach(function(h){var li=document.createElement('li');li.textContent=h;u2.appendChild(li);});
+    var rel=el('dmRel');rel.innerHTML='';
+    el('dmH3').hidden=rel.hidden=!d.rel.length;
+    el('dmH3').textContent=L.z_rel;
+    d.rel.forEach(function(k){var b=document.createElement('button');b.type='button';b.textContent=DEV[k].name;b.addEventListener('click',function(){openDev(k);});rel.appendChild(b);});
+    el('dmImg').src=d.img;el('dmImg').alt=d.alt;el('dmThumbs').innerHTML='';el('dmThumbs').style.display='none';
+    el('dmWa').textContent=L.z_ask;
+    el('dmWa').href='https://wa.me/'+WA_NUM+'?text='+encodeURIComponent(L.wa+' '+(lang==='es'?'Busco propiedades en ':'I am looking for properties in ')+d.name+'.');
+    var i=ZORDER.indexOf(id),p=ZORDER[(i+5)%6],n=ZORDER[(i+1)%6];
+    el('dmPrev').textContent='← '+ZONES[p].name;el('dmNext').textContent=ZONES[n].name+' →';
+    el('dmPrev').dataset.go=p;el('dmNext').dataset.go=n;
+  }
   var ORDER=['aston-martin','baccarat','cipriani','e11even','five-park','waldorf'];
   var dm=document.getElementById('dm'),cur=null,lastFocus=null;
   function el(id){return document.getElementById(id);}
   function fill(id){
+    if(ZONES[id]){fillZone(id);return;}
+    setMode(false);el('dmHi').textContent=D[lang].dm_hi;el('dmH3').hidden=true;el('dmRel').hidden=true;el('dmWa').textContent=D[lang].dm_ask;
     var d=DEV[id],L=D[lang],x=d[lang];cur=id;
     el('dmTag').textContent=d.area+' · '+d.year;
     el('dmTitle').textContent=d.name;
     el('dmAddr').textContent=d.addr;
-    el('dmAddr').style.display=d.addr?'':'none';
+    el('dmAddr').style.display=d.addr?'':'none';el('dmFacts').style.display='';
     var f='<div><b>'+d.floors+'</b><span>'+L.l_floors+'</span></div>';
     f+=d.price?'<div><b>'+d.price+'</b><span>'+L.l_from+'</span></div>':'<div><b>'+d.res+'</b><span>'+L.l_res+'</span></div>';
     f+=(d.price&&d.res)?'<div><b>'+d.res+'</b><span>'+L.l_res+'</span></div>':'<div><b>'+d.year+'</b><span>'+L.l_year+'</span></div>';
@@ -553,11 +601,11 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
     el('dmPrev').dataset.go=p;el('dmNext').dataset.go=n;
   }
   function openDev(id,push){
-    if(!DEV[id])return;
+    if(!DEV[id]&&!ZONES[id])return;
     if(!cur)lastFocus=document.activeElement;
     fill(id);dm.classList.add('open');dm.setAttribute('aria-hidden','false');dm.scrollTop=0;
-    document.title=DEV[id].name+' | David Freed';
-    if(push!==false){try{history.pushState({dev:id},'','#dev='+id);}catch(e){}}
+    document.title=(DEV[id]||ZONES[id]).name+' | David Freed';
+    if(push!==false){try{history.pushState({dev:id},'','#'+(DEV[id]?'dev':'zone')+'='+id);}catch(e){}}
     el('dmClose').focus({preventScroll:true});
   }
   function closeDev(push){
@@ -572,8 +620,8 @@ footer .demo{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
   el('dmPrev').addEventListener('click',function(){openDev(this.dataset.go);});
   el('dmNext').addEventListener('click',function(){openDev(this.dataset.go);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDev();});
-  window.addEventListener('popstate',function(){var m=/#dev=([\w-]+)/.exec(location.hash);if(m&&DEV[m[1]])openDev(m[1],false);else closeDev(false);});
-  var hm=/#dev=([\w-]+)/.exec(location.hash);if(hm&&DEV[hm[1]])openDev(hm[1],false);
+  window.addEventListener('popstate',function(){var m=/#(?:dev|zone)=([\w-]+)/.exec(location.hash);if(m&&(DEV[m[1]]||ZONES[m[1]]))openDev(m[1],false);else closeDev(false);});
+  var hm=/#(?:dev|zone)=([\w-]+)/.exec(location.hash);if(hm&&(DEV[hm[1]]||ZONES[hm[1]]))openDev(hm[1],false);
 
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
